@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical" android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/bg">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvExpertise"
+            android:text="Select Your Expertise:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/Black"
+            android:layout_centerHorizontal="true"
+            />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/IconExpertise"
+            android:src="@drawable/ic_format_paint_24dp"
+            android:layout_alignLeft="@+id/tvExpertise"
+            android:layout_alignStart="@+id/tvExpertise"
+            android:layout_marginLeft="-25dp"
+            android:layout_marginTop="10dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Painter"
+            android:id="@+id/checkBoxPainter"
+            android:layout_below="@+id/IconExpertise"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Constructor"
+            android:id="@+id/checkBoxConstructor"
+            android:layout_below="@+id/checkBoxPainter"
+            android:layout_margin="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appliance Repairer"
+            android:id="@+id/checkBoxApplianceRepairer"
+            android:layout_below="@+id/checkBoxConstructor"
+            android:layout_margin="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cleaning Service"
+            android:id="@+id/checkBoxCleaningService"
+            android:layout_below="@+id/checkBoxApplianceRepairer"
+            android:layout_margin="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Woodwork"
+            android:id="@+id/checkBoxWoodwork"
+            android:layout_below="@+id/checkBoxCleaningService"
+            android:layout_margin="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Landscaping/Gardening"
+            android:id="@+id/checkBoxLandscaping"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/checkBoxWoodwork"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masonary/Tile Work"
+            android:id="@+id/checkBoxMasonary"
+            android:layout_margin="5dp"
+            android:layout_below="@id/checkBoxLandscaping"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Electrical Service"
+            android:id="@+id/checkBoxElectricalService"
+            android:layout_margin="5dp"
+            android:layout_below="@id/checkBoxMasonary"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home Improvement"
+            android:id="@+id/checkBoxHomeImprovement"
+            android:layout_below="@+id/checkBoxElectricalService"
+            android:layout_margin="5dp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plumber"
+            android:id="@+id/checkBoxPlumber"
+            android:layout_below="@+id/checkBoxHomeImprovement"
+            android:layout_margin="5dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Other:"
+            android:id="@+id/textViewOther"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/checkBoxPlumber"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/etOther"
+            android:layout_toRightOf="@+id/textViewOther"
+            android:layout_toEndOf="@id/textViewOther"
+            android:layout_margin="5dp"
+            android:layout_below="@id/checkBoxPlumber"
+            android:layout_alignBaseline="@+id/textViewOther"
+            />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/etShop"
+            android:hint="Enter Your Shop Name"
+            android:layout_below="@+id/textViewOther"
+            android:layout_alignLeft="@+id/tvExpertise"
+            android:layout_alignStart="@+id/tvExpertise" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/IconShop"
+            android:src="@drawable/shopicon"
+            android:layout_alignBottom="@+id/etShop"
+            android:layout_alignTop="@+id/etShop"
+            android:layout_alignLeft="@+id/IconExpertise"
+            android:layout_alignStart="@+id/IconExpertise" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:id="@+id/btnReg"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/etShop"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</ScrollView>
+
+</RelativeLayout>

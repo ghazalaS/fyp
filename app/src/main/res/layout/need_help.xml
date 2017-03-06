@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/need_help"
+        android:id="@+id/tvNeedHelp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        />
+
+    <SearchView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:layout_below="@+id/tvNeedHelp"
+        android:layout_alignStart="@+id/etCategory"
+        android:layout_alignLeft="@+id/etCategory"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:searchHintIcon="@drawable/ic_search_24dp"
+        android:queryHint="Search Category"
+        />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Select_Category"
+        android:id="@+id/etCategory"
+        android:textColor="@color/Black"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvNeedHelp"
+        android:layout_marginTop="85dp"/>
+
+    <Spinner
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinCategory"
+        android:entries="@array/expertise"
+        android:layout_below="@id/etCategory"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="6dp">
+    </Spinner>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/btnSearch"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/spinCategory"
+        android:layout_marginTop="35dp" />
+
+</RelativeLayout>

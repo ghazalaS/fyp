@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/three_buttons_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThreeButtonsActivity">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Edit your profile"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/tvReg"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etUName"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:hint="User Name"/>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/ivIconUsername"
+                        android:layout_toEndOf="@id/etUName"
+                        android:layout_toRightOf="@id/etUName"
+                        android:layout_alignBottom="@id/etUName"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconUname"
+                        android:layout_toLeftOf="@id/etUName"
+                        android:layout_toStartOf="@id/etUName"
+                        android:layout_alignBottom="@id/etUName"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_person_24dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etFName"
+
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:hint="First Name"/>
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etLName"
+                        android:layout_below="@id/etFName"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:hint="Last Name"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconFulName"
+                        android:src="@drawable/ic_person_outline_24dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toLeftOf="@+id/etFName"
+                        android:layout_toStartOf="@+id/etFName" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:ems="10"
+                        android:id="@+id/etPhone"
+
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:hint="Phone Number"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconPhone"
+                        android:layout_toLeftOf="@id/etPhone"
+                        android:layout_toStartOf="@id/etPhone"
+                        android:layout_alignBottom="@id/etPhone"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_phone_24dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:ems="10"
+                        android:id="@+id/etEmail"
+
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:hint="Email"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconEmail1"
+                        android:layout_toLeftOf="@id/etEmail"
+                        android:layout_toStartOf="@id/etEmail"
+                        android:layout_alignBottom="@id/etEmail"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/email_icon"/>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/ivIconEmail"
+                        android:layout_toEndOf="@id/etEmail"
+                        android:layout_toRightOf="@id/etEmail"
+                        android:layout_alignBottom="@id/etEmail"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/etPass"
+
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:hint="Password"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconPassword"
+                        android:layout_toLeftOf="@id/etPass"
+                        android:layout_toStartOf="@id/etPass"
+                        android:layout_alignBottom="@id/etPass"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_lock_24dp"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/ivShowPassword"
+                        android:layout_toEndOf="@id/etPass"
+                        android:layout_toRightOf="@id/etPass"
+                        android:layout_alignBottom="@id/etPass"
+                        android:src="@drawable/ic_visibility_24dp"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/ivShowPasswordOff"
+                        android:layout_toEndOf="@id/etPass"
+                        android:layout_toRightOf="@id/etPass"
+                        android:layout_alignBottom="@id/etPass"
+                        android:src="@drawable/ic_visibility_off_24dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal">
+
+                    <Button
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/btnLoc"
+                        android:text="Set your location"
+
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/ivIconLocation"
+                        android:layout_toLeftOf="@id/btnLoc"
+                        android:layout_toStartOf="@id/btnLoc"
+                        android:layout_alignBottom="@id/btnLoc"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_place_24dp"/>
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

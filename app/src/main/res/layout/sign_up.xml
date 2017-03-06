@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/register"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/tvReg"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etUName"
+                android:drawableLeft="@drawable/ic_person_24dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tvReg"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:hint="User Name"/>
+
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etFName"
+                android:drawableLeft="@drawable/ic_person_outline_24dp"
+                android:layout_below="@id/etUName"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="First Name"/>
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etLName"
+                android:layout_below="@id/etFName"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="Last Name"
+                android:drawableLeft="@drawable/ic_person_outline_24dp" />
+
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/etCNIC"
+                android:layout_below="@id/etLName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:drawableLeft="@drawable/cnic"
+                android:hint="CNIC"/>
+
+            <Spinner
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinCategory"
+                android:layout_below="@id/etCNIC"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:entries="@array/category"
+                android:textStyle="bold"
+                android:layout_marginLeft="30dp">
+            </Spinner>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/IconCategory"
+                android:src="@drawable/ic_person_24dp"
+                android:layout_alignBottom="@id/etCNIC"
+                android:layout_alignStart="@id/etCNIC"
+                android:layout_alignLeft="@id/etCNIC"
+                android:layout_marginBottom="-33dp"
+                />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/etPhone"
+                android:layout_below="@id/spinCategory"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_call_24dp"
+                android:hint="Phone Number"/>
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/etEmail"
+                android:layout_below="@id/etPhone"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:drawableLeft="@drawable/email_icon_3"
+                android:layout_centerHorizontal="true"
+                />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/etPass"
+                android:layout_below="@id/etEmail"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/ic_lock_24dp"
+                />
+
+            <Spinner
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinSecQue"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/etPass"
+                android:layout_marginTop="10dp"
+                android:entries="@array/secretque"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp">
+            </Spinner>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/IconSeqQue"
+                android:src="@drawable/ic_lock_24dp"
+                android:layout_alignBottom="@id/etPass"
+                android:layout_alignStart="@id/etPass"
+                android:layout_alignLeft="@id/etPass"
+                android:layout_marginBottom="-43dp"/>
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etSecAns"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/spinSecQue"
+                android:hint="Secret Answer"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/ic_lock_24dp"
+                />
+
+            <Button
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/btnLoc"
+                android:text="Set your location"
+                android:layout_below="@id/etSecAns"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_location_on_24dp"
+                />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="REGISTER"
+                android:id="@+id/btnReg"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/btnLoc"
+                android:layout_centerHorizontal="true"
+                />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/btnNext"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/btnLoc"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/ivIconUsername"
+                android:layout_toEndOf="@id/etUName"
+                android:layout_toRightOf="@id/etUName"
+                android:layout_alignBottom="@id/etUName"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/ivIconEmail"
+                android:layout_toEndOf="@id/etEmail"
+                android:layout_toRightOf="@id/etEmail"
+                android:layout_alignBottom="@id/etEmail"
+                />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/ivIconCnic"
+                android:layout_toEndOf="@id/etCNIC"
+                android:layout_toRightOf="@id/etCNIC"
+                android:layout_alignBottom="@id/etCNIC"
+                />
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

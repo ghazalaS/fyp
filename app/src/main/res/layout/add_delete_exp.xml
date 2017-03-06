@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add Experties"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Painter"
+                android:id="@+id/checkBoxPainter"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Constructor"
+        android:id="@+id/checkBoxConstructor"
+        android:layout_below="@+id/checkBoxPainter"
+        android:layout_margin="5dp"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appliance Repairer"
+        android:id="@+id/checkBoxApplianceRepairer"
+       android:layout_below="@+id/checkBoxConstructor"
+        android:layout_margin="5dp"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cleaning Service"
+        android:id="@+id/checkBoxCleaningService"
+       android:layout_below="@+id/checkBoxApplianceRepairer"
+        android:layout_margin="5dp"
+        android:checked="false"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Woodwork"
+        android:id="@+id/checkBoxWoodwork"
+        android:layout_below="@+id/checkBoxCleaningService"
+        android:layout_margin="5dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Landscaping/Gardening"
+        android:id="@+id/checkBoxLandscaping"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/checkBoxWoodwork"
+        android:checked="false"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masonary/Tile Work"
+        android:id="@+id/checkBoxMasonary"
+        android:layout_margin="5dp"
+        android:layout_below="@id/checkBoxLandscaping"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Electrical Service"
+        android:id="@+id/checkBoxElectricalService"
+        android:layout_margin="5dp"
+        android:layout_below="@id/checkBoxMasonary"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Improvement"
+        android:id="@+id/checkBoxHomeImprovement"
+        android:layout_below="@+id/checkBoxElectricalService"
+        android:checked="false"
+        android:layout_margin="5dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plumber"
+        android:id="@+id/checkBoxPlumber"
+        android:layout_below="@+id/checkBoxHomeImprovement"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Other:"
+        android:id="@+id/textViewOther"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/checkBoxPlumber"
+        android:textStyle="bold"/>
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etOther"
+                android:layout_toRightOf="@+id/textViewOther"
+                android:layout_toEndOf="@id/textViewOther"
+                android:layout_margin="5dp"
+                android:layout_below="@id/checkBoxPlumber"
+                android:layout_alignBaseline="@+id/textViewOther"
+                />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

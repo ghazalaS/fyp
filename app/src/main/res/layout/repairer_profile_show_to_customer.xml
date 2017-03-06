@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/three_buttons_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThreeButtonsActivity">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+    <ImageView
+        android:src="@drawable/ic_person_24dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/UserImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Saad123"
+        android:id="@+id/tvUName"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignBottom="@+id/UserImage"
+        android:layout_alignRight="@+id/tvAvgRating"
+        android:layout_alignEnd="@+id/tvAvgRating" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="abc"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvFName"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/UserImage"
+        android:layout_toRightOf="@+id/UserImage"
+        android:layout_toEndOf="@+id/UserImage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="4.5"
+        android:id="@+id/tvAvgRating"
+        android:layout_alignTop="@+id/tvFName"
+        android:layout_toRightOf="@+id/tvFName"
+        android:layout_toEndOf="@+id/tvFName" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="abc@gmail.com"
+        android:id="@+id/tvEmail"
+        android:layout_below="@+id/tvFName"
+        android:layout_alignLeft="@+id/tvFName"
+        android:layout_alignStart="@+id/tvFName"
+        android:gravity="bottom"/>
+
+    <ImageView
+        android:src="@drawable/email_icon"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/tvFName"
+        android:layout_toLeftOf="@+id/tvFName"
+        android:layout_toStartOf="@+id/tvFName"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView7"
+            android:src="@drawable/ic_format_paint_24dp"
+            android:layout_below="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Painter"
+        android:id="@+id/tvExpertise"
+        android:gravity="bottom"
+        android:layout_above="@+id/tvReviews"
+        android:layout_toRightOf="@+id/imageView7"
+        android:layout_toEndOf="@+id/imageView7" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Reviews:"
+            android:textStyle="bold"
+            android:id="@+id/tvReviews"
+            android:layout_below="@+id/imageView7"
+            android:layout_alignStart="@+id/imageView7"
+            android:layout_alignLeft="@+id/imageView7"
+            android:layout_marginBottom="20dp"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:id="@+id/listView"
+        android:layout_below="@+id/tvReviews"
+        android:layout_alignStart="@+id/tvReviews"
+        android:layout_alignLeft="@+id/tvReviews" />
+
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

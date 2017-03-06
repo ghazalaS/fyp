@@ -1,0 +1,107 @@
+<resources>
+    <string name="register">REGISTER</string>
+    <string name="app_name">fyp</string>
+    <string name="change_password">Change Password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="send_new_password">Save new password</string>
+    <string name="send_secretans">Done!</string>
+    <string name="enter_username">Enter your username:</string>
+    <string name="ok">OK</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="send">Send</string>
+    <string name="profile">Profile</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="user_name">User Name</string>
+    <string name="phoneNo">Phone No.</string>
+    <string name="cnic">CNIC</string>
+    <string name="address">Address</string>
+    <string name="shop_affiliation">Shop Affiliation Info.</string>
+    <string name="expertise">Expertise</string>
+    <string name="rating">Rating</string>
+    <string name="reviews">Reviews</string>
+    <string name="need_help">Need Help</string>
+    <string name="change_profile">Change Profile</string>
+    <string name="favourites">Favourites</string>
+    <string name="sec_ques">Secret Question</string>
+    <string name="sec_ans">Secret Answer</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="yourexp">Your Expertises:</string>
+    <string name="viewReviews">View reviews</string>
+    <string name="viewExpertises">View Or Add Expertises</string>
+    <string name="viewYourReviews">Reviews you have got:</string>
+    <string name="Select_Category">Select Category:</string>
+
+
+    <string-array name="expertise">
+        <item>Painter</item>
+        <item>Constructor</item>
+        <item>Appliance Repairer</item>
+        <item>Cleaning Service</item>
+        <item>Landscaping/Gardening</item>
+        <item>Wood Work</item>
+        <item>Masonary/Tile Work</item>
+        <item>Electrical Service</item>
+        <item>Home Improvement</item>
+        <item>Plumber</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>Customer</item>
+        <item>Repairer</item>
+    </string-array>
+
+    <string-array name="secretque">
+        <item>what is your maiden name ?</item>
+        <item>what is your favourite animal ?</item>
+        <item>what is your school name ?</item>
+        <item>what is your favourite hobby ?</item>
+        <item>What is the name of your favourite aunt?</item>
+    </string-array>
+    <string-array name="favdata">
+        <item>Ali</item>
+        <item>Ahmad</item>
+        <item>Saad</item>
+        <item>Hamza</item>
+        <item>Zain</item>
+        <item>Hamid</item>
+        <item>Ali9</item>
+        <item>Ahmad_8</item>
+        <item>Hassan_95</item>
+        <item>Saad_13</item>
+        <item>Ali</item>
+        <item>Ahmad</item>
+        <item>Saad</item>
+        <item>Hamza</item>
+        <item>Zain</item>
+        <item>Hamid</item>
+        <item>Ali9</item>
+        <item>Ahmad_8</item>
+        <item>Hassan_95</item>
+        <item>Saad_13</item>
+    </string-array>
+    <string-array name="usernames">
+        <item>arooj123</item>
+        <item>asad45</item>
+        <item>tariq_butt</item>
+        <item>ali90</item>
+    </string-array>
+
+    <string-array name="reviews">
+        <item>excellent!</item>
+        <item>good!</item>
+        <item>poor!</item>
+        <item>average!</item>
+    </string-array>
+
+    <string-array name="ratings">
+        <item>4.5</item>
+        <item>4.0</item>
+        <item>3.5</item>
+        <item>3.2</item>
+    </string-array>
+
+</resources>
