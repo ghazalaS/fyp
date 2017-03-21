@@ -259,7 +259,7 @@ public class Expertise extends AppCompatActivity implements View.OnClickListener
         postParam.put("longitude", userdata.getLongitude());
         postParam.put("latitude", userdata.getLatitude());
 
-        String url="http://192.168.10.10:8081/register/";
+        String url="http://192.168.10.34:8080/register/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
@@ -306,6 +306,7 @@ public class Expertise extends AppCompatActivity implements View.OnClickListener
                 }
             };
             thread.start();
+            finish();
         }
         else{
             Toast.makeText(this, "Account not created!", Toast.LENGTH_LONG).show();

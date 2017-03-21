@@ -65,8 +65,8 @@ public class RepairerProfile extends AppCompatActivity {
                 editor.putString("category", "");
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
-
                 startActivity(i);
+                finish();
             }
         });
         mActionBar.setCustomView(mCustomView);
@@ -91,7 +91,7 @@ public class RepairerProfile extends AppCompatActivity {
                 }
             }
         });
-
+        repairer = (Repairer) getIntent().getSerializableExtra("data");
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
         editButton = (Button) findViewById(R.id.btnEdit);
@@ -99,10 +99,11 @@ public class RepairerProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getBaseContext(), EditRepairerProfile.class);
+                i.putExtra("data", repairer);
                 startActivity(i);
             }
         });
-        repairer = (Repairer) getIntent().getSerializableExtra("data");
+
         tvFName.setText(repairer.getFname() + " " + repairer.getLname());
         //   tvLName.setText(customer.getLname());
         tvUName.setText(repairer.getUname());
@@ -111,8 +112,10 @@ public class RepairerProfile extends AppCompatActivity {
         tvEmail.setText(repairer.getEmail());
         tvShop.setText(repairer.getShop());
 
-
+        Repairer.setUserInfo(repairer);
     }
+
+
     public void startRequestForExpertise(){
         SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
         String rname="";
@@ -122,7 +125,7 @@ public class RepairerProfile extends AppCompatActivity {
             rname = prefs.getString("uname", "No name defined");//"No name defined" is the default value.
 
         }
-        String url = "http://192.168.10.10:8081/giveexpertise/";
+        String url = "http://192.168.0.7:8000/giveexpertise/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("r_username",rname);
@@ -160,5 +163,17 @@ public class RepairerProfile extends AppCompatActivity {
                     }
                 });
         Volley.newRequestQueue(this).add(jsObjRequest);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        repairer=Repairer.getUserInfo();
+        tvFName.setText(repairer.getFname()+" "+repairer.getLname());
+        tvUName.setText(repairer.getUname());
+        tvPhoneNo.setText(repairer.getPhno());
+        tvCNIC.setText(repairer.getCnic());
+        tvShop.setText(repairer.getShop());
+        tvEmail.setText(repairer.getEmail());
     }
 }

@@ -34,8 +34,8 @@ public class ConfirmCustomerWorkDone extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getBaseContext(), Login.class);
-
                 startActivity(i);
+                finish();
             }
         });
         mActionBar.setCustomView(mCustomView);

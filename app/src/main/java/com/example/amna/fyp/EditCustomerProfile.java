@@ -112,7 +112,7 @@ public class EditCustomerProfile extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(), CustomerProfile.class);
                 i.putExtra("data", customer);
                 startActivity(i);
-                //finish();
+                finish();
                 //System.exit(0);
             }
         });
@@ -296,6 +296,7 @@ public class EditCustomerProfile extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Password is change. Login again!", Toast.LENGTH_LONG).show();
                 final Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                finish();
             }
 
             if(password.equals(etPass.getText().toString())){
@@ -304,15 +305,17 @@ public class EditCustomerProfile extends AppCompatActivity {
                 customer.setLname(etLName.getText().toString());
                 customer.setPhno(etPhone.getText().toString());
                 customer.setEmail(etEmail.getText().toString());
+                Customer.setUserInfo(customer);
 
                 SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
                 editor.putString("uname", customer.getUname());
                 editor.commit();
 
                 Toast.makeText(getBaseContext(), "Profile Updated!", Toast.LENGTH_LONG).show();
-                final Intent i = new Intent(getBaseContext(), CustomerProfile.class);
-                i.putExtra("data", customer);
-                startActivity(i);
+                //final Intent i = new Intent(getBaseContext(), CustomerProfile.class);
+                //i.putExtra("data", customer);
+                // startActivity(i);
+                finish();
             }
         }
     }

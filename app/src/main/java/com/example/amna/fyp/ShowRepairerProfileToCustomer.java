@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -123,7 +124,8 @@ public class ShowRepairerProfileToCustomer extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater mInflater = LayoutInflater.from(this);
 
-        View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        //View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        View mCustomView = mInflater.inflate(R.layout.logout_back_action_bar, null);
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("RepairHub");
 
@@ -140,8 +142,19 @@ public class ShowRepairerProfileToCustomer extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(), Login.class);
 
                 startActivity(i);
+                finish();
             }
         });
+
+        ImageView ivBack=(ImageView) mCustomView.findViewById(R.id.ivBack);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
     }
@@ -154,7 +167,7 @@ public class ShowRepairerProfileToCustomer extends AppCompatActivity {
             cname = prefs.getString("uname", "No name defined");//"No name defined" is the default value.
 
         }
-        String url = "http://192.168.10.10:8081/addfavourite/";
+        String url = "http://192.168.0.7:8000/addfavourite/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("c_username", cname);

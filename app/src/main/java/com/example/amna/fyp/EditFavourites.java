@@ -66,8 +66,7 @@ public class EditFavourites extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Cancel Clicked!",
-                        Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
@@ -81,7 +80,7 @@ public class EditFavourites extends AppCompatActivity {
         adapter = new FavouritesAdapter(EditFavourites.this, dataItems);
         listView.setAdapter(adapter);*/
 
-        String url = "http://192.168.10.10:8081/givefavourites/";
+        String url = "http://192.168.0.7:8000/givefavourites/";
         String username=getIntent().getStringExtra("uname");
         JSONObject obj = new JSONObject();
         try{
@@ -196,7 +195,7 @@ public class EditFavourites extends AppCompatActivity {
 
     }
     public void startSearchByUsernameRequest(String rname){
-        String url = "http://192.168.10.10:8081/getrepairerlistbyusername/";
+        String url = "http://192.168.0.7:8000/getrepairerlistbyusername/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("r_username", rname);
@@ -223,6 +222,7 @@ public class EditFavourites extends AppCompatActivity {
                             i.putExtra("rname",rname);
                             i.putExtra("rating",rating);
                             startActivity(i);
+                           // finish();
 
                         } catch (JSONException e) {
                             e.printStackTrace();

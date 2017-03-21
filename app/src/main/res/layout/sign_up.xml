@@ -146,13 +146,28 @@
                 android:drawableLeft="@drawable/ic_lock_24dp"
                 />
 
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/etConfirmPass"
+                android:layout_below="@id/etPass"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="Confirm Password"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/ic_lock_24dp"
+                />
+
             <Spinner
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinSecQue"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:layout_below="@id/etPass"
+                android:layout_below="@id/etConfirmPass"
                 android:layout_marginTop="10dp"
                 android:entries="@array/secretque"
                 android:layout_centerHorizontal="true"
@@ -164,9 +179,9 @@
                 android:layout_height="25dp"
                 android:id="@+id/IconSeqQue"
                 android:src="@drawable/ic_lock_24dp"
-                android:layout_alignBottom="@id/etPass"
-                android:layout_alignStart="@id/etPass"
-                android:layout_alignLeft="@id/etPass"
+                android:layout_alignBottom="@id/etConfirmPass"
+                android:layout_alignStart="@id/etConfirmPass"
+                android:layout_alignLeft="@id/etConfirmPass"
                 android:layout_marginBottom="-43dp"/>
 
             <EditText

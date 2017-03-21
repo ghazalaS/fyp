@@ -71,7 +71,8 @@ public class SearchActivity extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater mInflater = LayoutInflater.from(this);
 
-        View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+       // View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        View mCustomView = mInflater.inflate(R.layout.logout_back_action_bar, null);
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("RepairHub");
 
@@ -87,8 +88,19 @@ public class SearchActivity extends AppCompatActivity {
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                finish();
             }
         });
+
+        ImageView ivBack=(ImageView) mCustomView.findViewById(R.id.ivBack);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 
@@ -180,7 +192,7 @@ class SearchAdapter extends ArrayAdapter<String> {
         SharedPreferences prefs = getContext().getSharedPreferences("user", 0);
         String cname="";
         cname = prefs.getString("uname", "No name defined");
-        String url = "http://192.168.10.10:8081/showrepairerprofile/";
+        String url = "http://192.168.0.7:8000/showrepairerprofile/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("c_username", cname);
@@ -253,7 +265,7 @@ class SearchAdapter extends ArrayAdapter<String> {
     {
         Intent i = new Intent(getContext(), ShowRepairerProfileToCustomer.class);
         i.putExtra("data", r);
-        i.putExtra("isFav",isFav);
+        i.putExtra("isFav", isFav);
         if(clientList!=null){
             i.putExtra("clientList", clientList);
         }

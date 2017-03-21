@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -55,7 +56,8 @@ public class NeedHelp extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater mInflater = LayoutInflater.from(this);
 
-        View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+       // View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        View mCustomView = mInflater.inflate(R.layout.logout_back_action_bar, null);
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("RepairHub");
 
@@ -71,8 +73,19 @@ public class NeedHelp extends AppCompatActivity {
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                finish();
             }
         });
+
+        ImageView ivBack=(ImageView) mCustomView.findViewById(R.id.ivBack);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 
@@ -169,7 +182,7 @@ public class NeedHelp extends AppCompatActivity {
     }
 
     private void startRequest() {
-        String url = "http://192.168.10.10:8081/getrepairerlistbyexpertise/";
+        String url = "http://192.168.0.7:8000/getrepairerlistbyexpertise/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("expertise", expertise);
@@ -196,6 +209,7 @@ public class NeedHelp extends AppCompatActivity {
                             i.putExtra("rname",rname);
                             i.putExtra("rating",rating);
                             startActivity(i);
+                            finish();
 
                         } catch (JSONException e) {
                             e.printStackTrace();

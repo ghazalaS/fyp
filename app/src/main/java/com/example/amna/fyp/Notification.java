@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -23,7 +25,7 @@ public class Notification extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater mInflater = LayoutInflater.from(this);
 
-        View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        View mCustomView = mInflater.inflate(R.layout.logout_back_action_bar, null);
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("RepairHub");
 
@@ -33,10 +35,19 @@ public class Notification extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getBaseContext(), Login.class);
-
                 startActivity(i);
+                finish();
             }
         });
+
+        ImageView ivBack=(ImageView) mCustomView.findViewById(R.id.ivBack);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 
@@ -47,6 +58,7 @@ public class Notification extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i1 = new Intent(getBaseContext(), RequestShow.class);
                 startActivity(i1);
+                finish();
             }
         });
         tvNot2=(TextView)findViewById(R.id.textView14);
@@ -55,6 +67,7 @@ public class Notification extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), AskTaskDone.class);
                 startActivity(i);
+                finish();
             }
         });
 

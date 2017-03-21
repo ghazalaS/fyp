@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -24,7 +25,8 @@ public class RequestShow extends AppCompatActivity {
         mActionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater mInflater = LayoutInflater.from(this);
 
-        View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+       // View mCustomView = mInflater.inflate(R.layout.logout_action_bar, null);
+        View mCustomView = mInflater.inflate(R.layout.logout_back_action_bar, null);
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("RepairHub");
 
@@ -36,8 +38,19 @@ public class RequestShow extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(), Login.class);
 
                 startActivity(i);
+                finish();
             }
         });
+
+        ImageView ivBack=(ImageView) mCustomView.findViewById(R.id.ivBack);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 

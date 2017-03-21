@@ -58,7 +58,7 @@ public class Login extends AppCompatActivity {
         etPassword=(EditText)findViewById(R.id.etPass);
         tvForgetPass.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), ask_username.class);
+                Intent intent = new Intent(getBaseContext(), Ask_username.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(),signup1.class);
+                Intent i = new Intent(getBaseContext(),Signup1.class);
                 startActivity(i);
             }
         });
@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
        // }
 
 
-            String url = "http://192.168.10.10:8081/getprofile/";
+            String url = "http://192.168.10.34:8080/getprofile/";
             JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url,new JSONObject(postParam),new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -225,6 +225,7 @@ public class Login extends AppCompatActivity {
             Intent i = new Intent(getBaseContext(), RepairerProfile.class);
             i.putExtra("data", r);
             startActivity(i);
+            finish();
         }
         else {
             SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
@@ -235,6 +236,7 @@ public class Login extends AppCompatActivity {
             Intent i = new Intent(getBaseContext(), CustomerProfile.class);
             i.putExtra("data", c);
             startActivity(i);
+            finish();
         }
 
     }

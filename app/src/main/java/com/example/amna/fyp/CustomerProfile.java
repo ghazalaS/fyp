@@ -61,6 +61,7 @@ public class CustomerProfile extends AppCompatActivity {
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                finish();
             }
         });
         mActionBar.setCustomView(mCustomView);
@@ -73,11 +74,17 @@ public class CustomerProfile extends AppCompatActivity {
         bottomBar.setItemsFromMenu(R.menu.customer_menu, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
+                if(itemId==R.id.notification)
+                {
+                    Intent i = new Intent(getApplicationContext(), Notification.class);
+                    startActivity(i);
+                }
                 switch (itemId) {
                     case R.id.notification:
                         Intent i = new Intent(getBaseContext(), Notification.class);
                         startActivity(i);
                         break;
+
                     case R.id.favourite:
                         Intent i1 = new Intent(getBaseContext(), EditFavourites.class);
                         i1.putExtra("uname", customer.uname);
@@ -110,6 +117,19 @@ public class CustomerProfile extends AppCompatActivity {
 
         tvFName.setText(customer.getFname()+" "+customer.getLname());
         //   tvLName.setText(customer.getLname());
+        tvUName.setText(customer.getUname());
+        tvPhoneNo.setText(customer.getPhno());
+        tvCNIC.setText(customer.getCnic());
+        tvEmail.setText(customer.getEmail());
+
+        Customer.setUserInfo(customer);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        customer=Customer.getUserInfo();
+        tvFName.setText(customer.getFname()+" "+customer.getLname());
         tvUName.setText(customer.getUname());
         tvPhoneNo.setText(customer.getPhno());
         tvCNIC.setText(customer.getCnic());

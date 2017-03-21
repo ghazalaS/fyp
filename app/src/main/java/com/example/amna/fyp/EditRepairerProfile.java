@@ -115,7 +115,7 @@ public class EditRepairerProfile extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(), RepairerProfile.class);
                 i.putExtra("data", repairer);
                 startActivity(i);
-                //finish();
+                finish();
                 //System.exit(0);
             }
         });
@@ -305,6 +305,7 @@ public class EditRepairerProfile extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Password is change. Login again!", Toast.LENGTH_LONG).show();
                 final Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
+                finish();
             }
 
             if(password.equals(etPass.getText().toString())){
@@ -314,15 +315,19 @@ public class EditRepairerProfile extends AppCompatActivity {
                 repairer.setPhno(etPhone.getText().toString());
                 repairer.setEmail(etEmail.getText().toString());
                 repairer.setShop(etShop.getText().toString());
+                //repairer.setCnic(repairer.getCnic());
+
+                Repairer.setUserInfo(repairer);
 
                 SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
                 editor.putString("uname", repairer.getUname());
                 editor.commit();
 
                 Toast.makeText(getBaseContext(), "Profile Updated!", Toast.LENGTH_LONG).show();
-                final Intent i = new Intent(getBaseContext(), RepairerProfile.class);
-                i.putExtra("data", repairer);
-                startActivity(i);
+                //final Intent i = new Intent(getBaseContext(), RepairerProfile.class);
+                //i.putExtra("data", repairer);
+                //startActivity(i);
+                finish();
             }
         }
     }

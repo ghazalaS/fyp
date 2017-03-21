@@ -77,7 +77,7 @@ public class getProfile extends AppCompatActivity {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://192.168.10.10:8081/matchsecretans/");
+            URL url = new URL("http://192.168.0.7:8000/matchsecretans/");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter
@@ -148,7 +148,7 @@ public class getProfile extends AppCompatActivity {
 
     public void openQuespage()
     {
-        Intent i = new Intent(getBaseContext(),ask_newpassword.class);
+        Intent i = new Intent(getBaseContext(),Ask_newpassword.class);
 
         i.putExtra("uname",userData.getUname());
         startActivity(i);
