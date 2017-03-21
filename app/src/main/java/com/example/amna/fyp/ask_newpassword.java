@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * Created by NewShalimarComputer on 9/20/2016.
  */
-public class ask_newpassword extends AppCompatActivity {
+public class Ask_newpassword extends AppCompatActivity {
     EditText etNewpass1;
     Button btnOk;
     UserData userData;
@@ -60,7 +60,7 @@ public class ask_newpassword extends AppCompatActivity {
         // userdata.setPassword(etNewpass.getText().toString());
 
 
-        String url ="http://192.168.10.10:8081/changepassword/" ;
+        String url ="http://192.168.0.7:8000/changepassword/" ;
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
@@ -80,7 +80,7 @@ public class ask_newpassword extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ask_newpassword.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                Toast.makeText(Ask_newpassword.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         }){
@@ -93,7 +93,7 @@ public class ask_newpassword extends AppCompatActivity {
 
         };
 
-        MySingleton.getInstance(ask_newpassword.this).addToRequestQueue(jsObjectRequest);
+        MySingleton.getInstance(Ask_newpassword.this).addToRequestQueue(jsObjectRequest);
     }
 
 

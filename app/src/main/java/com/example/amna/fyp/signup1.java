@@ -51,11 +51,11 @@ import java.util.Map;
 /**
  * Created by NewShalimarComputer on 9/12/2016.
  */
-public class signup1 extends AppCompatActivity implements View.OnClickListener,View.OnFocusChangeListener{
+public class Signup1 extends AppCompatActivity implements View.OnClickListener,View.OnFocusChangeListener{
     private EditText etusername;
     private EditText etfirstname;
     private EditText etlastname;
-    private EditText etpassword;
+    private EditText etpassword,etConfirmPassword;
     private EditText etemail;
     private EditText etcnic;
     private EditText etphno;
@@ -85,6 +85,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         etfirstname=(EditText)findViewById(R.id.etFName);
         etlastname=(EditText)findViewById(R.id.etLName);
         etpassword=(EditText)findViewById(R.id.etPass);
+        etConfirmPassword=(EditText)findViewById(R.id.etConfirmPass);
         etemail=(EditText)findViewById(R.id.etEmail);
         etcnic=(EditText)findViewById(R.id.etCNIC);
         etphno=(EditText)findViewById(R.id.etPhone);
@@ -103,7 +104,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         btnLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent = new Intent(signup1.this, MapsActivity.class);
+                Intent intent = new Intent(Signup1.this, MapsActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -111,7 +112,10 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validate())
+                if(!confirmPassword())
+                    Toast.makeText(getBaseContext(), "Password and confirm password are not match!", Toast.LENGTH_LONG).show();
+
+                else if(!validate())
                     Toast.makeText(getBaseContext(), "Fill all the fields!", Toast.LENGTH_LONG).show();
                     // call AsynTask to perform network operation on separate thread
                 else {
@@ -278,7 +282,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         Map<String, String> postParam= new HashMap<String, String>();
         postParam.put("uname", uname);
 
-        String url = "http://192.168.10.10:8081/checkusername/";
+        String url = "http://192.168.10.34:8080/checkusername/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
@@ -298,7 +302,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(signup1.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                Toast.makeText(Signup1.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         }){
@@ -311,7 +315,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
 
         };
 
-        MySingleton.getInstance(signup1.this).addToRequestQueue(jsObjectRequest);
+        MySingleton.getInstance(Signup1.this).addToRequestQueue(jsObjectRequest);
 
 
     }
@@ -340,7 +344,10 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
 
         switch(view.getId()){
             case R.id.btnReg:
-                if(!validate())
+                if(!confirmPassword())
+                    Toast.makeText(getBaseContext(), "Password and confirm password are not match!", Toast.LENGTH_LONG).show();
+
+                else if(!validate())
                     Toast.makeText(getBaseContext(), "Fill all the fields!", Toast.LENGTH_LONG).show();
                     // call AsynTask to perform network operation on separate thread
                 else {
@@ -378,6 +385,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
                 }
             };
             thread.start();
+            finish();
         }
         else{
             Toast.makeText(this, "Account not created!", Toast.LENGTH_LONG).show();
@@ -404,19 +412,18 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
         postParam.put("longitude", userdata.getLongitude());
         postParam.put("latitude", userdata.getLatitude());
 
-        String url="http://192.168.10.10:8081/register/";
+        String url="http://192.168.10.34:8080/register/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
                 callToast("true");
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(signup1.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                Toast.makeText(Signup1.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 callToast("false");
                 error.printStackTrace();
             }
@@ -430,7 +437,7 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
 
         };
 
-        MySingleton.getInstance(signup1.this).addToRequestQueue(jsObjectRequest);
+        MySingleton.getInstance(Signup1.this).addToRequestQueue(jsObjectRequest);
 
 
     }
@@ -446,6 +453,8 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
             return false;
         else if(etpassword.getText().toString().trim().equals(""))
             return false;
+        else if(etConfirmPassword.getText().toString().trim().equals(""))
+            return false;
         else if(etphno.getText().toString().trim().equals(""))
             return false;
         else if(etcnic.getText().toString().trim().equals(""))
@@ -457,6 +466,12 @@ public class signup1 extends AppCompatActivity implements View.OnClickListener,V
             return false;
         }
 
+        else
+            return true;
+    }
+    private boolean confirmPassword(){
+        if(!etpassword.getText().toString().trim().equals(etConfirmPassword.getText().toString().trim()))
+            return false;
         else
             return true;
     }

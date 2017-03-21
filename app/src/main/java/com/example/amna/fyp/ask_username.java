@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * Created by NewShalimarComputer on 9/20/2016.
  */
-public class ask_username extends AppCompatActivity {
+public class Ask_username extends AppCompatActivity {
     EditText etUname;
     Button btnOk;
 
@@ -54,7 +54,7 @@ public class ask_username extends AppCompatActivity {
         postParam.put("uname", userdata.getUname());
        // postParam.put("uname", etUname.getText().toString());
 
-        String url="http://192.168.10.10:8081/getsecretqueans/";
+        String url="http://192.168.0.7:8000/getsecretqueans/";
 
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
@@ -76,7 +76,7 @@ public class ask_username extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ask_username.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                Toast.makeText(Ask_username.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
         }){
@@ -89,7 +89,7 @@ public class ask_username extends AppCompatActivity {
 
         };
 
-        MySingleton.getInstance(ask_username.this).addToRequestQueue(jsObjectRequest);
+        MySingleton.getInstance(Ask_username.this).addToRequestQueue(jsObjectRequest);
 
 
     }
@@ -100,7 +100,7 @@ public class ask_username extends AppCompatActivity {
     }
     public void openNextpage(String secQues)
     {
-        Intent i = new Intent(getBaseContext(),ask_secret_ans.class);
+        Intent i = new Intent(getBaseContext(),Ask_secret_ans.class);
         i.putExtra("secretQues",secQues);
         i.putExtra("uname",etUname.getText().toString());
         startActivity(i);
