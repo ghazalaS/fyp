@@ -31,7 +31,7 @@
 
         </activity>
 
-        <activity android:name=".signup1"></activity>
+        <activity android:name=".Signup1"></activity>
         <activity
             android:name=".Login">
             <intent-filter>
@@ -40,10 +40,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.amna.fyp.ask_newpassword">
+            android:name="com.example.amna.fyp.Ask_newpassword">
         </activity>
-        <activity android:name=".ask_username"></activity>
-        <activity android:name=".ask_secret_ans"></activity>
+        <activity android:name=".Ask_username"></activity>
+        <activity android:name=".Ask_secret_ans"></activity>
         <activity android:name=".CustomerProfile"></activity>
         <activity android:name=".RepairerProfile"></activity>
         <activity android:name=".ShowExpertise"></activity>
