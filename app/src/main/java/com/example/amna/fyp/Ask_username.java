@@ -54,7 +54,7 @@ public class Ask_username extends AppCompatActivity {
         postParam.put("uname", userdata.getUname());
        // postParam.put("uname", etUname.getText().toString());
 
-        String url="http://192.168.0.7:8000/getsecretqueans/";
+        String url="https://sheltered-tor-47307.herokuapp.com/getsecretqueans/";
 
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
