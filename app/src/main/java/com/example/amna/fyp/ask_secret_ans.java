@@ -65,7 +65,7 @@ public class Ask_secret_ans extends AppCompatActivity {
         postParam.put("uname", userData.getUname());
         postParam.put("secretAns", etSecAns.getText().toString());
 
-        String url="https://sheltered-tor-47307.herokuapp.com/matchsecretans/";
+        String url="http://192.168.0.7:8000/matchsecretans/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override

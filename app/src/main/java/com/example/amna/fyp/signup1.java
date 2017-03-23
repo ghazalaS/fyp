@@ -282,7 +282,7 @@ public class Signup1 extends AppCompatActivity implements View.OnClickListener,V
         Map<String, String> postParam= new HashMap<String, String>();
         postParam.put("uname", uname);
 
-        String url = "https://sheltered-tor-47307.herokuapp.com/checkusername/";
+        String url = "http://192.168.10.34:8080/checkusername/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
@@ -412,7 +412,7 @@ public class Signup1 extends AppCompatActivity implements View.OnClickListener,V
         postParam.put("longitude", userdata.getLongitude());
         postParam.put("latitude", userdata.getLatitude());
 
-        String url="https://sheltered-tor-47307.herokuapp.com/register/";
+        String url="http://192.168.10.34:8080/register/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override
