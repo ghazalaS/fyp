@@ -259,7 +259,7 @@ public class Expertise extends AppCompatActivity implements View.OnClickListener
         postParam.put("longitude", userdata.getLongitude());
         postParam.put("latitude", userdata.getLatitude());
 
-        String url="http://192.168.10.34:8080/register/";
+        String url="https://sheltered-tor-47307.herokuapp.com/register/";
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override

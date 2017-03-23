@@ -60,7 +60,7 @@ public class Ask_newpassword extends AppCompatActivity {
         // userdata.setPassword(etNewpass.getText().toString());
 
 
-        String url ="http://192.168.0.7:8000/changepassword/" ;
+        String url ="https://sheltered-tor-47307.herokuapp.com/changepassword/" ;
 
         JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url, new JSONObject(postParam), new Response.Listener<JSONObject>() {
             @Override

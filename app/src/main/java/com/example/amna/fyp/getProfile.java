@@ -77,7 +77,7 @@ public class getProfile extends AppCompatActivity {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://192.168.0.7:8000/matchsecretans/");
+            URL url = new URL("https://sheltered-tor-47307.herokuapp.com/matchsecretans/");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
             // is output buffer writter

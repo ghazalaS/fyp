@@ -80,7 +80,7 @@ public class EditFavourites extends AppCompatActivity {
         adapter = new FavouritesAdapter(EditFavourites.this, dataItems);
         listView.setAdapter(adapter);*/
 
-        String url = "http://192.168.0.7:8000/givefavourites/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/givefavourites/";
         String username=getIntent().getStringExtra("uname");
         JSONObject obj = new JSONObject();
         try{
@@ -195,7 +195,7 @@ public class EditFavourites extends AppCompatActivity {
 
     }
     public void startSearchByUsernameRequest(String rname){
-        String url = "http://192.168.0.7:8000/getrepairerlistbyusername/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/getrepairerlistbyusername/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("r_username", rname);

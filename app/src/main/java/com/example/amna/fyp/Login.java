@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
        // }
 
 
-            String url = "http://192.168.10.34:8080/getprofile/";
+            String url = "https://sheltered-tor-47307.herokuapp.com/getprofile/";
             JsonObjectRequest jsObjectRequest=new JsonObjectRequest(Request.Method.POST, url,new JSONObject(postParam),new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {

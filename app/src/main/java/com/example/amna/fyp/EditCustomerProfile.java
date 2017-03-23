@@ -183,7 +183,7 @@ public class EditCustomerProfile extends AppCompatActivity {
     }
 
     private void checkUsername() {
-        String url = "http://192.168.10.34:8080/checkusername/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/checkusername/";
         Map<String, String> params = new HashMap<String, String>();
         //params.put("uname", customerData.getUname());
         String uname=etUName.getText().toString();
@@ -230,7 +230,7 @@ public class EditCustomerProfile extends AppCompatActivity {
     }
 
     private void startRequest() {
-        String url = "http://192.168.10.34:8080/EditCustomerProfile/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/EditCustomerProfile/";
         Map<String, String> params = new HashMap<String, String>();
 
         params.put("unamePrevious", customer.getUname());
@@ -291,7 +291,8 @@ public class EditCustomerProfile extends AppCompatActivity {
         if(message=="ProfileNotEdited") {
             Toast.makeText(getBaseContext(), "Data is not Saved!", Toast.LENGTH_LONG).show();
         }
-        else if(message=="ProfileEdited"){
+        else// if(message=="ProfileEdited")
+        {
             if(!password.equals(etPass.getText().toString())){
                 Toast.makeText(getBaseContext(), "Password is change. Login again!", Toast.LENGTH_LONG).show();
                 final Intent i = new Intent(getBaseContext(), Login.class);

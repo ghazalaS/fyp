@@ -272,7 +272,7 @@ public class EditExperties extends AppCompatActivity {
             rname = prefs.getString("uname", "No name defined");//"No name defined" is the default value.
 
         }
-        String url = "http://192.168.0.7:8000/addDelExpertise/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/addDelExpertise/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("r_username",rname);

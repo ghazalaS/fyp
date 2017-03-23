@@ -182,7 +182,7 @@ public class NeedHelp extends AppCompatActivity {
     }
 
     private void startRequest() {
-        String url = "http://192.168.0.7:8000/getrepairerlistbyexpertise/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/getrepairerlistbyexpertise/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("expertise", expertise);

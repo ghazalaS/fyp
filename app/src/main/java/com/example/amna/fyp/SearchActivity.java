@@ -192,7 +192,7 @@ class SearchAdapter extends ArrayAdapter<String> {
         SharedPreferences prefs = getContext().getSharedPreferences("user", 0);
         String cname="";
         cname = prefs.getString("uname", "No name defined");
-        String url = "http://192.168.0.7:8000/showrepairerprofile/";
+        String url = "https://sheltered-tor-47307.herokuapp.com/showrepairerprofile/";
         JSONObject obj = new JSONObject();
         try{
             obj.put("c_username", cname);
