@@ -378,6 +378,9 @@ public class Signup1 extends AppCompatActivity implements View.OnClickListener,V
                 public void run() {
                     try {
                         Thread.sleep(3500); // As I am using LENGTH_LONG in Toast
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                                Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();

@@ -30,6 +30,7 @@ public class RepairerProfile extends AppCompatActivity {
     Repairer repairer;
     private Button editButton;
     private TextView tvFName, tvLName, tvUName, tvPhoneNo, tvCNIC, tvEmail, tvAddress, tvShop;
+    private BottomBar bottomBar;
 
 
     @Override
@@ -65,6 +66,9 @@ public class RepairerProfile extends AppCompatActivity {
                 editor.putString("category", "");
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             }
@@ -75,7 +79,7 @@ public class RepairerProfile extends AppCompatActivity {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.three_buttons_activity);
 
-        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar = BottomBar.attach(this, savedInstanceState);
         bottomBar.setItemsFromMenu(R.menu.repairer_menu, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
@@ -93,6 +97,7 @@ public class RepairerProfile extends AppCompatActivity {
         });
         repairer = (Repairer) getIntent().getSerializableExtra("data");
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
+        bottomBar.setDefaultTabPosition(0);
         bottomBar.setActiveTabColor("#C2185B");
         editButton = (Button) findViewById(R.id.btnEdit);
         editButton.setOnClickListener(new View.OnClickListener() {
@@ -168,6 +173,7 @@ public class RepairerProfile extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        bottomBar.setDefaultTabPosition(0);
         repairer=Repairer.getUserInfo();
         tvFName.setText(repairer.getFname()+" "+repairer.getLname());
         tvUName.setText(repairer.getUname());

@@ -72,6 +72,9 @@ public class NeedHelp extends AppCompatActivity {
                 editor.putString("category", "");
                 editor.commit();
                 Intent i = new Intent(getBaseContext(), Login.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             }
@@ -209,7 +212,7 @@ public class NeedHelp extends AppCompatActivity {
                             i.putExtra("rname",rname);
                             i.putExtra("rating",rating);
                             startActivity(i);
-                            finish();
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

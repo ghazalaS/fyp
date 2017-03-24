@@ -104,10 +104,7 @@ public class Ask_newpassword extends AppCompatActivity {
 
     public void openNextpage()
     {
-        Intent i = new Intent(getBaseContext(),Login.class);
 
-        i.putExtra("uname",userData.getUname());
-        startActivity(i);
         finish();
     }
 

@@ -125,7 +125,8 @@ public class Login extends AppCompatActivity {
                                 msg=response.getBoolean("message");
                                 if(msg) {
                                     userData.setCategory(response.getString("category"));
-                                    if(userData.category.equals("Customer")) {c.setFname(response.getString("fname"));
+                                    if (userData.category.equals("Customer")) {
+                                        c.setFname(response.getString("fname"));
                                         c.setLname(response.getString("lname"));
                                         c.setUname(response.getString("uname"));
                                         c.setCnic(response.getString("cnic"));

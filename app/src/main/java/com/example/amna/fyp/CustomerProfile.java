@@ -24,6 +24,7 @@ public class CustomerProfile extends AppCompatActivity {
     private Button editButton;
     private Button needHelpButton;
     private TextView tvFName, tvLName, tvUName, tvPhoneNo, tvCNIC, tvEmail, tvAddress;
+    BottomBar bottomBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,9 @@ public class CustomerProfile extends AppCompatActivity {
                 editor.putString("category", "");
                 editor.apply();
                 Intent i = new Intent(getBaseContext(), Login.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             }
@@ -70,19 +74,16 @@ public class CustomerProfile extends AppCompatActivity {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.three_buttons_activity);
 
-        BottomBar bottomBar = BottomBar.attach(this, savedInstanceState);
+        bottomBar = BottomBar.attach(this, savedInstanceState);
+
         bottomBar.setItemsFromMenu(R.menu.customer_menu, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
-                if(itemId==R.id.notification)
-                {
-                    Intent i = new Intent(getApplicationContext(), Notification.class);
-                    startActivity(i);
-                }
+
                 switch (itemId) {
                     case R.id.notification:
                         Intent i = new Intent(getBaseContext(), Notification.class);
-                        startActivity(i);
+                        //   startActivity(i);
                         break;
 
                     case R.id.favourite:
@@ -96,7 +97,7 @@ public class CustomerProfile extends AppCompatActivity {
 
         // Set the color for the active tab. Ignored on mobile when there are more than three tabs.
         bottomBar.setActiveTabColor("#C2185B");
-
+        bottomBar.setDefaultTabPosition(0);
         editButton=(Button)findViewById(R.id.btnEdit);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +129,7 @@ public class CustomerProfile extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        bottomBar.setDefaultTabPosition(0);
         customer=Customer.getUserInfo();
         tvFName.setText(customer.getFname()+" "+customer.getLname());
         tvUName.setText(customer.getUname());

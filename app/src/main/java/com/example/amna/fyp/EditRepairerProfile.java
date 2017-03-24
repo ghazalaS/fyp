@@ -114,6 +114,9 @@ public class EditRepairerProfile extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Data not saved!", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(getBaseContext(), RepairerProfile.class);
                 i.putExtra("data", repairer);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
                 //System.exit(0);

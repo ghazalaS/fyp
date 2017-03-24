@@ -111,6 +111,9 @@ public class EditCustomerProfile extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Data not saved!", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(getBaseContext(), CustomerProfile.class);
                 i.putExtra("data", customer);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
                 //System.exit(0);
