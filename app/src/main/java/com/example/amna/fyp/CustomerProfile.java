@@ -58,7 +58,7 @@ public class CustomerProfile extends AppCompatActivity {
                 editor.putString("uname", "");
                 editor.putString("password", "");
                 editor.putString("category", "");
-                editor.commit();
+                editor.apply();
                 Intent i = new Intent(getBaseContext(), Login.class);
                 startActivity(i);
                 finish();

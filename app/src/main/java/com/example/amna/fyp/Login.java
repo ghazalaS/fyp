@@ -40,10 +40,10 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    /*    SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
+        SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
         String cname1= prefs.getString("uname", "No name defined");
-        if(!cname1.equals(""))
-            Details();*/
+        if (!cname1.equals("") && !cname1.equals("No name defined"))
+            Details();
         setContentView(R.layout.login);
         userData=new UserData();
 
@@ -63,7 +63,6 @@ public class Login extends AppCompatActivity {
             }
         });
         btnSignup.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(),Signup1.class);
@@ -86,24 +85,35 @@ public class Login extends AppCompatActivity {
     public void Details() {
 
         String json = "";
-        String uname = etUname.getText().toString().trim();
-        String pass = etPassword.getText().toString().trim();
+
 
 
         // 3. build jsonObject
        // JSONObject jsonObject = new JSONObject();
 
         Map<String, String> postParam= new HashMap<String, String>();
-        userData.setUname(etUname.getText().toString());
-      /*  SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
+
+        SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
         String cname1= prefs.getString("uname", "No name defined");
-        if(!cname1.equals("")) {
-            postParam.put("uname", prefs.getString("uname", ""));
-            postParam.put("password", prefs.getString("password",""));
-        }else {*/
+        String passwd = prefs.getString("password", "No password defined");
+        if ((cname1.equals("") && passwd.equals("")) || (cname1.equals("No name defined") && passwd.equals("No password defined"))) {
+            String uname = etUname.getText().toString().trim();
+            userData.setUname(etUname.getText().toString());
+            String pass = etPassword.getText().toString().trim();
             postParam.put("uname", userData.getUname());
             postParam.put("password", pass);
-       // }
+        } else if ((!cname1.equals("") && !passwd.equals(""))) {
+            postParam.put("uname", prefs.getString("uname", ""));
+            postParam.put("password", prefs.getString("password", ""));
+        } else {
+            SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
+            editor.putString("uname", "");
+            editor.putString("password", "");
+            editor.putString("category", "");
+            editor.apply();
+            postParam.put("uname", "");
+            postParam.put("password", "");
+        }
 
 
             String url = "https://sheltered-tor-47307.herokuapp.com/getprofile/";
@@ -179,7 +189,7 @@ public class Login extends AppCompatActivity {
                             }catch (JSONException j){
                                 j.printStackTrace();
                             }
-                            if(msg==false)
+                            if (!msg)
                                 callToast();
                             else
                                 openNextpage();
@@ -217,22 +227,32 @@ public class Login extends AppCompatActivity {
     {
        // Toast.makeText(this, "Done!", Toast.LENGTH_LONG).show();
         if(userData.category.equals("Repairer")) {
+            SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
+            String passwd = prefs.getString("password", "No password defined");
             SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
             editor.putString("uname", r.getUname());
-            editor.putString("password", etPassword.getText().toString().trim());
+            if (passwd.equals("No password defined") || passwd.equals(""))
+                editor.putString("password", etPassword.getText().toString().trim());
+            else
+                editor.putString("password", passwd);
             editor.putString("category", "repairer");
-            editor.commit();
+            editor.apply();
             Intent i = new Intent(getBaseContext(), RepairerProfile.class);
             i.putExtra("data", r);
             startActivity(i);
             finish();
         }
         else {
+            SharedPreferences prefs = getBaseContext().getSharedPreferences("user", 0);
+            String passwd = prefs.getString("password", "No password defined");
             SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
             editor.putString("uname", c.getUname());
-			editor.putString("password", etPassword.getText().toString().trim());
+            if (passwd.equals("No password defined") || passwd.equals(""))
+                editor.putString("password", etPassword.getText().toString().trim());
+            else
+                editor.putString("password", passwd);
             editor.putString("category", "client");
-            editor.commit();
+            editor.apply();
             Intent i = new Intent(getBaseContext(), CustomerProfile.class);
             i.putExtra("data", c);
             startActivity(i);
