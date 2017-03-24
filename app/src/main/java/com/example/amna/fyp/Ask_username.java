@@ -104,6 +104,7 @@ public class Ask_username extends AppCompatActivity {
         i.putExtra("secretQues",secQues);
         i.putExtra("uname",etUname.getText().toString());
         startActivity(i);
+        finish();
     }
 
 }

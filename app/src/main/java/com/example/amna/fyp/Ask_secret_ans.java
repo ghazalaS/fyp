@@ -116,6 +116,7 @@ public class Ask_secret_ans extends AppCompatActivity {
 
         i.putExtra("uname",userData.getUname());
         startActivity(i);
+        finish();
     }
 
 }

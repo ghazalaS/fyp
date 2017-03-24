@@ -108,6 +108,7 @@ public class Ask_newpassword extends AppCompatActivity {
 
         i.putExtra("uname",userData.getUname());
         startActivity(i);
+        finish();
     }
 
 }
