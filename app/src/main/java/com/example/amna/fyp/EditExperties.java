@@ -292,19 +292,20 @@ public class EditExperties extends AppCompatActivity {
                             if(message)
                             {
                                 Toast.makeText(getBaseContext(), "Expertise updated", Toast.LENGTH_LONG).show();
-                                final Intent intent = new Intent(getBaseContext(), RepairerProfile.class);
+                                //final Intent intent = new Intent(getBaseContext(), RepairerProfile.class);
                                 Thread thread = new Thread(){
                                     @Override
                                     public void run() {
                                         try {
                                             Thread.sleep(3500); // As I am using LENGTH_LONG in Toast
-                                            startActivity(intent);
+                                            //startActivity(intent);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
                                     }
                                 };
                                 thread.start();
+                                finish();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

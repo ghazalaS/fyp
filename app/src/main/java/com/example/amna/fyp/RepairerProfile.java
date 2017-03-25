@@ -2,9 +2,12 @@ package com.example.amna.fyp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +24,10 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by kiransaeed507 on 1/10/2017.
@@ -109,6 +116,13 @@ public class RepairerProfile extends AppCompatActivity {
             }
         });
 
+        String latitude = repairer.getLatitude();
+        String longitude = repairer.getLongitude();
+        double lat = Double.parseDouble(latitude);
+        double log = Double.parseDouble(longitude);
+
+        String add = getCompleteAddressString(lat, log);
+
         tvFName.setText(repairer.getFname() + " " + repairer.getLname());
         //   tvLName.setText(customer.getLname());
         tvUName.setText(repairer.getUname());
@@ -117,7 +131,47 @@ public class RepairerProfile extends AppCompatActivity {
         tvEmail.setText(repairer.getEmail());
         tvShop.setText(repairer.getShop());
 
+        tvAddress.setText(add);
+
         Repairer.setUserInfo(repairer);
+    }
+
+    public String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
+        //String strAdd = "";
+        StringBuilder result = new StringBuilder();
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                if (address.getLocality() != null && address.getLocality().length() > 0) {
+                    result.append(address.getLocality()).append(",");
+                }
+                if (address.getAdminArea() != null && address.getAdminArea().length() > 0) {
+                    result.append(address.getAdminArea()).append("\n");
+                }
+                if (address.getCountryCode() != null && address.getCountryCode().length() > 0) {
+                    result.append(address.getCountryCode()).append(",");
+                }
+                if (address.getCountryName() != null && address.getCountryName().length() > 0) {
+                    result.append(address.getCountryName()).append(",");
+                }
+                if (address.getFeatureName() != null && address.getFeatureName().length() > 0) {
+                    result.append(address.getFeatureName()).append("\n");
+                }
+                if (address.getPostalCode() != null && address.getPostalCode().length() > 0) {
+                    result.append(address.getPostalCode());
+                }
+
+            }
+        } catch (IOException e) {
+            Log.e("tag", e.getMessage());
+        }
+
+        return result.toString();
+
+
     }
 
 
@@ -181,5 +235,15 @@ public class RepairerProfile extends AppCompatActivity {
         tvCNIC.setText(repairer.getCnic());
         tvShop.setText(repairer.getShop());
         tvEmail.setText(repairer.getEmail());
+
+        String latitude = repairer.getLatitude();
+        String longitude = repairer.getLongitude();
+        double lat = Double.parseDouble(latitude);
+        double log = Double.parseDouble(longitude);
+
+        String add = getCompleteAddressString(lat, log);
+
+        tvAddress.setText(add);
+
     }
 }

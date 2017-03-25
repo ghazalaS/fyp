@@ -3,9 +3,12 @@ package com.example.amna.fyp;
 import android.app.Notification;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +16,10 @@ import android.widget.TextView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by kiransaeed507 on 1/10/2017.
@@ -116,6 +123,31 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+        String latitude = customer.getLatitude();
+        String longitude = customer.getLongitude();
+        double lat = Double.parseDouble(latitude);
+        double log = Double.parseDouble(longitude);
+
+        String add = getCompleteAddressString(lat, log);
+
+        /*Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(this, Locale.getDefault());
+        try
+        {
+            addresses = geocoder.getFromLocation(lat, log, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+            String city = addresses.get(0).getLocality();
+            String state = addresses.get(0).getAdminArea();
+            String country = addresses.get(0).getCountryName();
+            String postalCode = addresses.get(0).getPostalCode();
+            String knownName = addresses.get(0).getFeatureName();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.w("My Current address", "Canont get Address!");
+        }*/
+
+
         tvFName.setText(customer.getFname()+" "+customer.getLname());
         //   tvLName.setText(customer.getLname());
         tvUName.setText(customer.getUname());
@@ -123,7 +155,65 @@ public class CustomerProfile extends AppCompatActivity {
         tvCNIC.setText(customer.getCnic());
         tvEmail.setText(customer.getEmail());
 
+        tvAddress.setText(add);
+        //tvAddress.setText(addresses);
+
         Customer.setUserInfo(customer);
+    }
+
+    public String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
+        //String strAdd = "";
+        StringBuilder result = new StringBuilder();
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+            /*if (addresses != null) {
+                Address returnedAddress = addresses.get(0);
+                StringBuilder strReturnedAddress = new StringBuilder("");
+
+                for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+                }
+                strAdd = strReturnedAddress.toString();
+                Log.w("My Current address", "" + strReturnedAddress.toString());
+            } else {
+                Log.w("My Current address", "No Address returned!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.w("My Current address", "Canont get Address!");
+        }
+        return strAdd;*/
+
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                if (address.getLocality() != null && address.getLocality().length() > 0) {
+                    result.append(address.getLocality()).append(",");
+                }
+                if (address.getAdminArea() != null && address.getAdminArea().length() > 0) {
+                    result.append(address.getAdminArea()).append("\n");
+                }
+                if (address.getCountryCode() != null && address.getCountryCode().length() > 0) {
+                    result.append(address.getCountryCode()).append(",");
+                }
+                if (address.getCountryName() != null && address.getCountryName().length() > 0) {
+                    result.append(address.getCountryName()).append(",");
+                }
+                if (address.getFeatureName() != null && address.getFeatureName().length() > 0) {
+                    result.append(address.getFeatureName()).append("\n");
+                }
+                if (address.getPostalCode() != null && address.getPostalCode().length() > 0) {
+                    result.append(address.getPostalCode());
+                }
+
+            }
+        } catch (IOException e) {
+            Log.e("tag", e.getMessage());
+        }
+
+        return result.toString();
+
+
     }
 
     @Override
@@ -136,6 +226,16 @@ public class CustomerProfile extends AppCompatActivity {
         tvPhoneNo.setText(customer.getPhno());
         tvCNIC.setText(customer.getCnic());
         tvEmail.setText(customer.getEmail());
+
+        String latitude = customer.getLatitude();
+        String longitude = customer.getLongitude();
+        double lat = Double.parseDouble(latitude);
+        double log = Double.parseDouble(longitude);
+
+        String add = getCompleteAddressString(lat, log);
+
+        tvAddress.setText(add);
+
     }
 
 }

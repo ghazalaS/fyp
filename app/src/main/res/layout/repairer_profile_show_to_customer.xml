@@ -13,76 +13,77 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg">
 
-    <ImageView
-        android:src="@drawable/ic_person_24dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/UserImage"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"/>
+        <ImageView
+            android:src="@drawable/ic_person_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/UserImage"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            />
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Saad123"
-        android:id="@+id/tvUName"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignBottom="@+id/UserImage"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_margin="5dp" />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="75dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Saad123"
+            android:id="@+id/tvUName"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignBottom="@+id/UserImage"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView"/>
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:text="abc"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/tvFName"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/UserImage"
-        android:layout_toRightOf="@+id/UserImage"
-        android:layout_toEndOf="@+id/UserImage" />
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="abc"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/tvFName"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/UserImage"
+            android:layout_toRightOf="@+id/UserImage"
+            android:layout_toEndOf="@+id/UserImage" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="4.5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/tvAvgRating"
-        android:layout_alignTop="@+id/tvFName"
-        android:layout_toRightOf="@+id/tvFName"
-        android:layout_toEndOf="@+id/tvFName" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Not rated yet!"
+            android:id="@+id/tvAvgRating"
+            android:layout_marginLeft="-50dp"
+            android:layout_alignTop="@+id/tvFName"
+            android:layout_toRightOf="@+id/tvFName"
+            android:layout_toEndOf="@+id/tvFName"  />
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="abc@gmail.com"
-        android:id="@+id/tvEmail"
-        android:layout_below="@+id/tvFName"
-        android:layout_alignLeft="@+id/tvFName"
-        android:layout_alignStart="@+id/tvFName"
-        android:gravity="bottom"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="abc@gmail.com"
+            android:id="@+id/tvEmail"
+            android:layout_below="@+id/tvFName"
+            android:layout_alignLeft="@+id/tvFName"
+            android:layout_alignStart="@+id/tvFName"
+            android:layout_alignBaseline="@+id/imageView"
+            android:gravity="bottom"/>
 
-    <ImageView
-        android:src="@drawable/email_icon"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/tvFName"
-        android:layout_toLeftOf="@+id/tvFName"
-        android:layout_toStartOf="@+id/tvFName"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:src="@drawable/email_icon"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/tvFName"
+            android:layout_toLeftOf="@+id/tvFName"
+            android:layout_toStartOf="@+id/tvFName"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="40dp"
@@ -91,37 +92,43 @@
             android:layout_below="@+id/imageView"
             android:layout_alignLeft="@+id/imageView"
             android:layout_alignStart="@+id/imageView"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Painter"
-        android:id="@+id/tvExpertise"
-        android:gravity="bottom"
-        android:layout_margin="5dp"
-        android:layout_above="@+id/tvReviews"
-        android:layout_toRightOf="@+id/imageView7"
-        android:layout_toEndOf="@+id/imageView7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Painter"
+            android:id="@+id/tvExpertise"
+            android:layout_below="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="40dp"
+            android:padding="5dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Reviews:"
             android:textStyle="bold"
             android:id="@+id/tvReviews"
-            android:layout_below="@+id/imageView7"
-            android:layout_alignStart="@+id/imageView7"
-            android:layout_alignLeft="@+id/imageView7"
-            android:layout_marginBottom="20dp"/>
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="190dp"
-        android:id="@+id/listView"
-        android:layout_below="@+id/tvReviews"
-        android:layout_alignStart="@+id/tvReviews"
-        android:layout_alignLeft="@+id/tvReviews" />
+            android:layout_below="@+id/tvExpertise"
+            android:layout_alignLeft="@+id/tvExpertise"
+            android:layout_alignStart="@+id/tvExpertise"
+            android:layout_marginLeft="-50dp"
+            />
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="190dp"
+            android:id="@+id/listView"
+            android:layout_below="@+id/tvReviews"
+            android:layout_alignLeft="@+id/tvReviews"
+            android:layout_alignStart="@+id/tvReviews"/>
 
 
     </RelativeLayout>
