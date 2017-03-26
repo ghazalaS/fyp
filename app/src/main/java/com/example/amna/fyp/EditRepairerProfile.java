@@ -306,8 +306,28 @@ public class EditRepairerProfile extends AppCompatActivity {
         else //if(message=="ProfileEdited")
         {
             if(!password.equals(etPass.getText().toString())){
-                Toast.makeText(getBaseContext(), "Password is change. Login again!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Password is changed. Login again!", Toast.LENGTH_LONG).show();
+                SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
+                editor.putString("uname", "");
+                editor.putString("password", "");
+                editor.putString("category", "");
+                editor.apply();
                 final Intent i = new Intent(getBaseContext(), Login.class);
+                Thread thread = new Thread(){
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3500); // As I am using LENGTH_LONG in Toast
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             }

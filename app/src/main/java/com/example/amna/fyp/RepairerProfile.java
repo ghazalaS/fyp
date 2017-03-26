@@ -145,20 +145,20 @@ public class RepairerProfile extends AppCompatActivity {
 
             if (addresses.size() > 0) {
                 Address address = addresses.get(0);
+                if (address.getFeatureName() != null && address.getFeatureName().length() > 0) {
+                    result.append(address.getFeatureName()).append(",");
+                }
+                if (address.getSubLocality() != null && address.getSubLocality().length() > 0) {
+                    result.append(address.getSubLocality()).append("\n");
+                }
                 if (address.getLocality() != null && address.getLocality().length() > 0) {
                     result.append(address.getLocality()).append(",");
                 }
                 if (address.getAdminArea() != null && address.getAdminArea().length() > 0) {
-                    result.append(address.getAdminArea()).append("\n");
-                }
-                if (address.getCountryCode() != null && address.getCountryCode().length() > 0) {
-                    result.append(address.getCountryCode()).append(",");
+                    result.append(address.getAdminArea()).append(",");
                 }
                 if (address.getCountryName() != null && address.getCountryName().length() > 0) {
-                    result.append(address.getCountryName()).append(",");
-                }
-                if (address.getFeatureName() != null && address.getFeatureName().length() > 0) {
-                    result.append(address.getFeatureName()).append("\n");
+                    result.append(address.getCountryName()).append("\n");
                 }
                 if (address.getPostalCode() != null && address.getPostalCode().length() > 0) {
                     result.append(address.getPostalCode());
