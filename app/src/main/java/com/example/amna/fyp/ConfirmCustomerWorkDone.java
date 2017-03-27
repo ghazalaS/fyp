@@ -1,6 +1,7 @@
 package com.example.amna.fyp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -33,7 +34,15 @@ public class ConfirmCustomerWorkDone extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = getSharedPreferences("user", MODE_PRIVATE).edit();
+                editor.putString("uname", "");
+                editor.putString("password", "");
+                editor.putString("category", "");
+                editor.apply();
                 Intent i = new Intent(getBaseContext(), Login.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 finish();
             }
@@ -49,13 +58,15 @@ public class ConfirmCustomerWorkDone extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i1 = new Intent(getBaseContext(), RateAndReview.class);
                 startActivity(i1);
+                finish();
             }
         });
         btnReject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(getBaseContext(), CustomerProfile.class);
-                startActivity(i1);
+                //Intent i1 = new Intent(getBaseContext(), CustomerProfile.class);
+                //startActivity(i1);
+                finish();
             }
         });
     }
